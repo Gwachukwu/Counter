@@ -5,10 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -47,13 +45,12 @@ fun Counter(){
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(8.dp)
         ) {
            Text(count.intValue.toString())
        }
         Row {
             Increment(count)
-            Spacer(modifier = Modifier.width(16.dp))
             Decrement(count)
         }
     }
@@ -61,14 +58,14 @@ fun Counter(){
 
 @Composable
 fun Increment(count : MutableState<Int>){
- Button(onClick = { count.value++ }) {
+    Button(onClick = { count.value++ }, Modifier.padding(4.dp)) {
      Text(text = "+")
  }  
 }
 
 @Composable
 fun Decrement(count : MutableState<Int>){
-    Button(onClick = { count.value-- }) {
+    Button(onClick = { count.value-- }, Modifier.padding(4.dp)) {
         Text(text = "-")
     }
 }
